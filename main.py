@@ -25,6 +25,19 @@ from surprise.model_selection import GridSearchCV
 
 def load_data():
     netflix_csv_file = open("netflix_rating.csv", mode = "w")
+    rating_files = ['combined_data_4.txt']
+    for file in rating_files:
+        with open(file) as f:
+            for line in f:
+                line.strip()
+                if line.endswith(":"):
+                    movie_id = line.replace(":", "")
+                else:
+                    row_data = []
+                    row_data = [item for item in line.split(",")]
+                    row_data.insert()
+
+
 
 
 def print_hi(name):
