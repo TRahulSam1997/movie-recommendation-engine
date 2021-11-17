@@ -74,6 +74,9 @@ train_sparse_data = get_user_item_sparse_matrix(train_data)
 
 test_sparse_data = get_user_item_sparse_matrix(test_data)
 
+global_average_rating = train_sparse_data.sum()/train_sparse_data.count_nonzero()
+print("Global Average Rating: {}".format(global_average_rating))
+
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
