@@ -35,8 +35,23 @@ def load_data():
                 else:
                     row_data = []
                     row_data = [item for item in line.split(",")]
-                    row_data.insert()
+                    row_data.insert(0, movie_id)
+                    netflix_csv_file.write(",".join(row_data))
+                    netflix_csv_file.write("\n")
 
+    netflix_csv_file.close()
+    df = pd.read_csv('netflix_rating.csv', sep=",", names = ["movie_id","customer_id", "rating", "date"])
+    return df
+
+# netflix_rating_df = load_data()
+# netflix_rating_df
+# netflix_rating_df.head()
+#
+# netflix_rating_df.duplicated(["movie_id","customer_id", "rating", "date"]).sum()
+#
+# split_value = int(len(netflix_rating_df) * 0.80)
+# train_data = netflix_rating_df[:split_value]
+# test_data = netflix_rating_df[split_value:]
 
 
 
